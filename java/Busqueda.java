@@ -52,3 +52,103 @@ public boolean estaOrdenado(int[] arreglo) {
     }
     return ordenado;
 }
+
+/*######################################################### */
+//METODO HASH
+//ya me olvide como funciona y explicarlo solo pongo codigo:
+
+
+public class cHash {
+    private int a[];
+    public cHash(int n) {
+        a = new int[n];
+    }
+    public void metodoDivision(int valor) {
+        int indice;
+        int m = a.length;
+        indice = valor % m;
+        if (a[indice] == 0)
+            a[indice] = valor;
+    }
+    public String muestraArreglo() {
+        String cadena = "";
+        int indMax = a.length - 1;
+        for (int i = 0; i <= indMax; i++)
+            cadena += a[i] + " ";
+        return cadena;
+    }
+    public int descompone(int valor) {
+        String cadena = String.valueOf(valor);
+        int i = cadena.length() / 2;
+        char indiceChar = cadena.charAt(i);
+        String ind = String.valueOf(indiceChar);
+        return Integer.parseInt(ind);
+
+    }
+    public void HashCuadrado(int valor) {
+        int valor2 = (int) Math.pow(valor, 2);
+        int m = a.length;
+        int indice = descompone(valor2);
+        if (a[indice] == 0)
+            a[indice] = valor;
+    }
+}
+//-----------------------------
+public class cHash2 {
+    private int a[];
+    public cHash2(int n) {
+        a = new int[n];
+    }
+    public void metodoDivision(int valor) {
+        int indice;
+        int m = a.length;
+        indice = valor % m;
+        if (a[indice] == 0)
+            a[indice] = valor;
+        else {
+            //visitaLineal(indice, valor);
+            visitaCuadratica(indice, valor);
+        }
+    }
+    public String muestraArreglo() {
+        String cadena = "";
+        int indMax = a.length - 1;
+        for (int i = 0; i <= indMax; i++)
+            cadena += a[i] + " ";
+        return cadena;
+    }
+    public int descompone(int valor) {
+        String cadena = String.valueOf(valor);
+        int i = cadena.length() / 2;
+        char indiceChar = cadena.charAt(i);
+        String ind = String.valueOf(indiceChar);
+        return Integer.parseInt(ind);
+
+    }
+    public void HashCuadrado(int valor) {
+        int valor2 = (int) Math.pow(valor, 2);
+        int m = a.length;
+        int indice = descompone(valor2);
+        if (a[indice] == 0)
+            a[indice] = valor;
+    }
+    public void visitaLineal(int ind, int valor) {
+        int j = 0;
+        int nuevoInd = ind + j;
+        int m = a.length;
+        while (a[nuevoInd] != 0) {
+            j++;
+            nuevoInd = (ind + j) % m;
+        }
+        a[nuevoInd] = valor;
+    }
+    public void visitaCuadratica(int ind, int valor) {
+        int j = 0;
+        int nuevoInd = ind + j * j;
+        int m = a.length;
+        while (a[nuevoInd] != 0) {
+            j++;
+            nuevoInd = (ind + j * j) % m;
+        }
+        a[nuevoInd] = valor;
+    }
