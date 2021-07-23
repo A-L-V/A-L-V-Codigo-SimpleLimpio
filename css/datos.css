@@ -1,0 +1,56 @@
+variables 
+:root {
+	--primary-color: #003476;
+	--header-size: 4rem;
+}
+
+llamarlo con:
+
+p{
+	font-size: var(--header-size);
+}
+
+#-------------------------------------------------
+Medidas
+
+Absolutas:
+px
+
+Relativas:
+%
+
+em: 1 em es el tamaño de fuente de la etiqueta padre
+
+rem: 1 rem es de 16 px osea del html
+usar con html{font-size: 15%;}
+
+max-min(width-height):
+
+usar vh como si fuera %
+#------------------------------------------------
+combinadores
+
+hermano adyacente o cercano: div + p {}
+hermano general : div ~ p {}
+hijo : div > p {}
+descendiente : div p {}
+#-------------------------------------------------
+pseudo
+
+Pseudo clases: define el estilo de un estado especial de un 
+(selector)
+p:hover{
+	(property)
+	color: blue;	//mouse sobre el texto
+}
+
+p:active{
+	color: red; //al hacer click al texto
+}
+
+Pseudo elemento: define el estilo de una parte especifica de un elemento
+
+p::after{
+	content: "	|	"; 
+    //despues del elemento agrega este contenido
+}

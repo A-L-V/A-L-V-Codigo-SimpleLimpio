@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="desktop.css" media="screen and (min-width: 800px)"/>
+
+<style>
+	@media (min-width: 400px){
+		...
+	} 
+</style>
+
+atributo: style="color: red ;"
+
+p {
+	font-size: 30px;
+}
+
+.clase {
+
+}
