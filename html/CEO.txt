@@ -1,0 +1,212 @@
+CEO: posicionamiento en la busqueda de los navegadores
+SEM: posicionamiento pagado: (anuncio);
+
+//google
+Fases de CEO:
+1.- Objetivos
+2.- Investigacion de palabra clave
+3.- BenchMarking: comparar nuestros servicios con otros
+4.- Analisis de competencia
+5.- Optimizacion de contenido
+6.- Integracion con redes sociales
+7.- Optimizacion geografica
+8.- Backlinks
+9.- Retroalimentacion
+10.- Reporte y monitoreo
+
+Factores de SEO:
+1.- SEO on page: optimizacion del contenido
+* Crear los contenidos orientado a palabras clave
+* Responder siempre la intencion de busqueda
+* Crear un contenido con una estructura de encabezado correcta
+* Optimizacion de imagenes, titulos y meta descripciones
+* Usar enlaces internos
+2.- Interacion de los usuarios con el contenido
+* Se debe responder siempre a la intencion de busqueda del usuarios
+* Crear texto agradable a la lectura
+* Agregar elementos visuales a los articulos
+* Insertar imagenes, ilustraciones, graficas, videos
+* Enlazar a otros articulos propios de forma inteligente
+3.- CTR(CLick Through Rate)
+* Numero de clicks que obtiene un enlace respecto al numero de impresiones
+* Optimizar titulos y meta descripciones 
+* ESTRATEGIA: usar iconos o emoticones tanto en los titulos como en la meta descripciones, ser llamativos
+4.- Link building
+* Acto o intencion de consiguir muchos Backlinks
+* Preferir la calidad y autoridad de los enlaces que cantidad//que otra empresa grande ponga tu link en su pagina
+* ESTRATEGIA: relacionarse con sitios similares
+5.- Velocidad
+Existe una relacion estrecha entre el tiempo de carga de una web y el porcentaje de rebote de los usuarios
+
+//meta etiquetas: indice a los crawlers de los motores de busqeuda que pagina indexar;
+<title>
+<meta type="description" content="poner descripcion">
+<meta name="keywords" content="palabra1, palabra2, palabra3, ..">
+<meta name="robots" content="index, follow, no folow">
+<meta name="topic" content="">
+<meta name="sumary" contect="">
+
+keywords: palabra clave de busquedas concretas
+ramos de flores a domicilio
+
+LSI: palabras de significado relacionado, no sinonimo
+agregarse:
+en el primer/ultimos parrafo de nuestro titulo
+en el cuerpo del post
+en la meta data y meta descripcion
+en link con anchor text adecuado
+en el titulo, h1, h2
+en la url
+en el texto alternativo de una imagen: ALT=""
+
+La palabra clave debe estar en las primeras 100, importante donde esta no cuantas vecez.
+Header->body->sidebars->footer;
+
+
+url:
+palabras amigables para el SEO
+backlinks:
+* autoridad de dominio: links entrantes, salientes, internas
+* de la misma tematica
+* directorios
+* redes sociales
+
+Sitemaps.xml;
+Es el mapa del sitio web
+Se tiene de contenido todas las urls que queremos indexar en el sitio web
+debe situarse en el directorio raiz
+
+Interfaz de usuario(UI):
+* Layouts  
+* Diseño visual
+* Diseño grafico
+* Tipografia
+* Colores
+
+Experiencia de usuario (UX):
+* Funcionalidad
+* Plataforma
+* Usabilidad y accesibilidad
+Diseño de interaccion
+Arquitectura de informacion
+Escenarios
+Busqueda de usuario 
+Wireframe(Esquema de pagina) y prototipos
+
+UI + UX = IxD(Diseño de Interaccion);
+
+Estructura y contenido
+* BreadCrumbs: Inicio >> Servicios >> Diseño web, navegacion optima
+* Taxonomia: estructura de categorias 
+* Favicon: simbolo que aparece arriba del link
+* Anchor text: no poner link directo si no darle un nombre
+* Caja de Busqueda
+* Pagina de contacto
+* Pagina aceca de
+* Politica de privacidad, terminos legales y cookies
+* No cuenta comentarios ni testinomios
+
+Hosting y dominio
+Https
+
+Herramientas de SEO
+google trends
+google spend
+google analytics
+google ads
+semrush
+Titulos para palabras clave
+keywordsTools
+autoridad de dominio
+Traffic Travis
+CMS's: wordpress,joomla,drupal
+
+//consejos
+Usar solo un h1
+
+
+SEO LOCAL
+* Utilizar NAP: nombre, direccion, telefono;
+* Incluir nombre de ciudad
+* Tener presencia en gooble my business
+* Conseguir reseñas
+* Embeber un mapa de google
+* Darse de alta en directorios locales: publicar informacion en paginas de directores
+* Valoraciones de reseñas
+* Calidad de contenido
+* Linkbuilding: buscar paginas de marketing digital
+
+Malas practicas
+* Comprar links
+* Muchas palabras clave
+* Texto oculto
+* Sobre optimizacion
+* Conseguir backlinks de tematicas diferentes
+* Evitar rebote
+* Evitar link rotos
+* Ofrecer premios a cambio de clicks en links
+* Anuncios agresivos
+* Malos vecinos: links externos dudosos 
+* Pirateria
+* COntenido falso u ofensivo
+* Contenido erotico
+* Cadena de redireccion
+* Mal historial de dominio
+* Error 404
+* Uso de flash
+
+Procedimiento
+
+Fase 1 - Segmentacion de audiencia: delimitar la audiencia
+
+¿Que cargo ocupa?
+¿Cuales son sus metas?
+¿Como podrias ayudarlo?
+¿Porque ha elegido tu empresa?
+¿Que aspectos valora en el producto o servicios que ofreces?
+
+Andres: edad, ciudad, empresa donde trabaja
+
+* Crear buyer persona
+* Segmentar por region (SEO LOCAL)
+* Analisis de competencia
+
+Fase 2 - Palabras clave
+Ṕlanificar segun Buscador google
+google trend
+aswer the public
+
+Fase 3 - Creacion de contenido
+* Tabla de contenido
+* encabezado
+* Metaetiquetas
+* imagenes
+* videos 
+* Audios
+* Mapas Internos
+* Links
+* Urls amigables
+
+Fase 4 - Publicacion
+* Publicacion de contenido o post
+* Indexacion( serach console google)
+* Integracion en Redes sociales
+* Integracion en Google my bsinnes
+* Integracion en google site 
+* Integracion en Blogger
+* Integacion con sholace
+* Integracion con google grupos
+* Email marketing
+
+Fase 5 - Proceso continuo
+* Creacion de post
+* Publicacion en redes sociales
+* Promociones y valor agregado
+
+Fase 6 - Monitoreo de los avanzes
+Analitica web
+
+Fase 7 - Retroalimentacion
+Optimizaccion de html
+Optimizacion del contenido
+Actualizacion segun recomendaciones de Google
