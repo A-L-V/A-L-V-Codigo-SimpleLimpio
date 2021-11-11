@@ -1,0 +1,8 @@
+public interface clienteinterface{
+    public boolean agregar(cliente e);
+    public boolean eliminar(cliente e);
+    public boolean editar(cliente e);
+    public Cliente listaruno(String cod);
+    public ArrayList<Cliente> listar();
+
+}

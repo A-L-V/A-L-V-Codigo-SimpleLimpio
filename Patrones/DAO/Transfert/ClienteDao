@@ -1,0 +1,11 @@
+public class ClienteDAO implements clienteInterface{
+    Conexion c = new Conexion();
+    Statemet st;
+    Connection con;
+    ResultSet rs;
+    Cliente c;
+
+    public booble agregar(Cliente c){
+        //
+    }...
+}

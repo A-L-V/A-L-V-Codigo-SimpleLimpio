@@ -41,8 +41,8 @@ public class Negocio {
         //conectamos a base de datos y obtenemos la conexion
         con.conectar();
         Connection cn = (Connection) con.getCon();
-        //creamos una arraylist para retornarlo y obtener todos los datos
         List<Linea> lista = new ArrayList();
+        //creamos una arraylist para retornarlo y obtener todos los datos
         try {
             String sql = "select * from  Linea";
             //Preparamos el statement

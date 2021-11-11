@@ -1,0 +1,204 @@
+# ¿Que es Git?
+
+Es un sistema de control de versiones para archivos de texto plano.
+
+Antes:
+Season Final.txt
+Season Final FINAL.txt
+
+Ahora:
+El sistema guarda todo los cambios, incluso los cambios de otras personas y un monton de cosas
+
+# ¿Que es GitHub?
+
+Una plataforma social de git.
+
+# Comandos de git
+
+## Configuracion
+
+git config --global user.mail "miemail@hotmail.com"
+git config --global user.name "tu nombre"
+git config --list //ver comandos por defecto
+
+## Inicializar 
+
+git init //iniciar un repositorio y crear una carpeta .git (la base de datos, repositorio)
+
+git add archivo.extension //agregar a el area en memoria RAM(staging) y rastearlo(tracked) 
+
+git rm --cached //quitar del staging
+
+git commit -m "mensaje a dejar" //agregar al repositorio como una version v1...v0 en la rama principal
+
+## Analisis
+
+git status //mostrar el estado de staging
+
+git show archivo.extension //mostrar los cambios historicos hecho
+
+git log archivo.extension //ver la historia entera de un archivo
+
+codigo es del log el numero del commit 
+git diff codigo numerodelcommit //comparacion de 2 versiones de un commit
+
+## Ramas 
+
+git branch nombreRama //crear una rama de la rama actual
+
+git checkout nombreRama //moverse a la rama
+
+git merge nombreRama //es un commit, fusionar la rama externa en la rama actual o posicionada
+
+## Para moverse de versiones
+
+volver a veriones anteriores
+git reset codigo --hard //todo vuelve al estado anterior(peligro), todo lo de arriba desaparece,
+git reset codigo --soft //el staging se mantiene
+
+git checkout codigo archivo //ver archivo en cierta version
+//si al estar aqui, envias un commit, el archivo es el unico que se modifica 
+git checkout master(rama) archivo //ver archivo en la version principal
+
+
+## Usar en remoto
+
+git clone url //trae una copia de master al directorio y crea la base de datos en el repositorio local con git init
+
+git push //enviar el repositorio local al remoto
+
+git fetch //traer al repositorio local
+
+git merge //copiar del repositorio local al direcotrio de trabajo
+
+git pull //fetch y merge
+
+
+## usar remoto de github
+
+git remote add origin(nombre) 'link' //traer el repositorio del github a local
+el nombre es upstream que es normalmente le ponen(fuente de origen)
+
+git remote -v //mostrar repositorio remotos  sea verbal 
+
+git pull origin rama // traer del origen al rama master
+
+git pull origin master --allow-unrelated-histories//fusionar remoto con local
+
+git push origin rama// enviar al origen la rama master
+
+**comando cortos**
+
+git add . //añadir todos los cambios al staging	 
+
+git commit -am "" //no con archivos nuevos
+
+gitk //interfaz
+
+**especificaciones**
+git diff //cambios de staging vs el directorio actual
+
+git log --stat //ver cambios especificos con mas detalle
+
+git log --all --graph --decorate --oneline //historia bien hecho
+
+git show-branch --all //muestra ramas existente e historia
+
+git commit --amend //remendar, copiar los datos al commit anterior
+
+git branch -r  //ramas remotas
+git branch -a //todas
+
+## Mas
+### tags
+
+copiar el hash del commit de codigo de arriba, hash son referencias
+git tag -a v0.1 -m "Mensaje como commit" hash 
+
+git tag //ver tags listados
+
+git tag show-ref --tags //ver tag designados
+
+git push origin --tags //mandar a origin los tags
+
+git tag -d nombre //eliminar el tag nombre
+
+git push origin :refs/tags/nombre  //elimado especial que lo elimina de github
+
+### fork 
+
+en github, copia del estado actual del repositorio y clonarlo como mio
+
+
+### git ignore
+
+.gitignore
+lista de archivos ignorados
+*.jpg
+!/content/themes/
+
+### Readme
+readme.md //markdone
+Editor online de readme 
+link = pando,github.io/editor.md/en.html
+
+### git rebase
+ // mala practica en repositorios remotos
+// util para rama local 
+proceso:
+crear una rama
+utilizar: git rebase ramaaenviar
+fusionar la historia de la rama y la del master
+eliminar la rama	
+
+### git stash
+//guardar temporal en los cambios y moverse en ramas
+//cambiar de ramas sin hacer comit a las modificaciones
+
+git stash list //ver los tasts
+
+git stash pop //volver a poner los cambios
+
+git stash branch ramanombre //crear una rama con los cambios hechos
+
+git stash drop //eliminar 
+
+### git clean 
+//quitar los archivos a quitar y borrarlos
+//no funsiona solito 
+
+git clean --dry-run //ejecucion en seco, simular lo que se borrara sin borralo
+
+git clean -f //se borrar todo lo llistado
+
+### git cherry-pick
+//mala practica xq esta reconstruyendo la hiistoria
+//usar merge o checkout
+//traer los commits de otra rama a la rama posicionada 
+git cherry-pick hash
+
+### git reflog
+//voler a al commit con sus ramas y todo 
+//ver todo el historial y todo 
+//copiar el head{n} que deseas
+
+git reset --hard o soft head{n}
+
+### buscar cosas
+*en archivos*
+git grep palabraabuscar // muestra los lugares donde se busca la palabra
+
+git grep -n color //mostrar con las posiciones
+
+git grep -c color //ver cuantas vecez se utiliza
+*en commits*
+git log -s "cabezera" //muestra todas las vecez con la palabra cabecerass en commits
+
+### otros
+git shortlog -s [-n] [--all//borrados o no] [--no-merges] //ver los logs por persona
+
+git config --global alias.nombre "codigo de git";
+
+git blame [-c] [-L35,56//lineas de tal] archivo//saber quien hizo que
+
+git comando --help //manual del como funciona el comando
