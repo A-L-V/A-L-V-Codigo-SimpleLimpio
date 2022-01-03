@@ -1,0 +1,84 @@
+netbeans
+1er paso:
+click derecho en el proyecto y agragar: Persistencee Unit
+En data source: new data source
+database connection: new database connection
+Escoger el driver y agragar
+siguiente siguiente ...
+Paso 2,
+creea paquete modelo 
+Paso 3: crear clases de una tabla de datos
+click derecho en el paquete 
+nuevo: Entity Classes from database
+Paso 4: 
+crear carpeta entreprise java bean | EJB
+paso 5: agregar metodos CRUD a partir de las clases
+click derecho en EJB
+crear: Session Beans For Entity Classes
+paso 6: crear paquete controlador
+crear clase: Managed+"clase"
+
+
+import EnterpriseJavaBean.CuentaFacadeLocal;
+import java.util.List;
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import modelo.Cuenta;
+import javax.ejb.EJB;
+
+@ManagedBean
+@SessionScoped
+public class ManagedCuenta {
+    @EJB
+    CuentaFacadeLocal cuentafl;
+    List<Cuenta> lista;
+    Cuenta cuenta;
+
+    @PostConstruct
+    public void init(){
+        this.cuenta = new Cuenta();
+    }
+
+    public void guardar(){
+        this.cuentafl.create(cuenta);
+    }
+    
+    public void eliminar(Cuenta cnt){
+        this.cuentafl.remove(cnt);
+    }
+    
+    public void cargar(Cuenta cnt){
+        this.cuenta = cnt;
+    }
+    
+    public void modificar(){
+        this.cuentafl.edit(cuenta);
+    }
+    
+    public CuentaFacadeLocal getCuentafl() {
+        return cuentafl;
+    }
+
+    public void setCuentafl(CuentaFacadeLocal cuentafl) {
+        this.cuentafl = cuentafl;
+    }
+
+    public List<Cuenta> getLista() {
+        lista = this.cuentafl.findAll();
+        return lista;
+    }
+
+    public void setLista(List<Cuenta> lista) {
+        this.lista = lista;
+    }
+
+    public Cuenta getCuenta() {
+        return cuenta;
+    }
+
+    public void setCuenta(Cuenta cuenta) {
+        this.cuenta = cuenta;
+    }   
+    
+}

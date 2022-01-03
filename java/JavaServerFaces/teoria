@@ -1,0 +1,64 @@
+JSF:
+marco de java para creacion de aplicaciones web, centrado a componentes como bloques de construccion para la interfaz de usuario
+
+
+Anotaciones:
+de menor a mayor alcance: peticion, vista,sesion y aplicacion
+con la anotacion de ambito se establece alcance de metodos y atributos
+
+@ResuestScoped:
+@ViewScoped: 
+@SessionScoped:
+@ApplicationScoped:
+
+otra anotaciones:
+@Inject  
+
+Lenguaje de expreson:
+
+#{}, espresion JSF
+Objeto
+propiedad
+
+Etiquetas basicas JSF-HTML
+agrupacion
+<h:form />
+<h:inputText/>
+<h:inputHidden/>
+<h:outputText/>
+<h:outputLabel/>
+<h:outputLink/>
+<h:message/>
+
+Etiquetas basicas JSF-CORE
+<f:view/> : crea una vista en la pagina
+<f:facet/> añade elemento facet a un componente(para cabeceras o pies)
+<f:attibute/>
+<f:view/>
+<f:param/>
+
+Validaciones 
+<f:validateLenth id="id" vlidatorMessage="tamaño incorrecto" minimum="" maximum""/>
+<f:validateLongRange/>
+<f:validateDoubleRange/>
+<f:validateRegex pattern="((? = .*[a-z].{6,})" />
+Conversiones
+<f:convetNumber>
+<f:convertDatTime>
+
+Mensaje
+<h:messages for="id">
+
+
+
+Facade
+patron de diseño estructural para simplificar la interfaz de un sistemas complejo de clases, bibliotecas o frameworks
+reduce al minimo la comunicacion y dependencias entre subsistemas
+
+
+JPA: java persistense ApplicationScoped:
+estandar java para implementar un framework object relational mapping(ORM),
+para interactuar la bd por objetos
+jpa: convierte objetos en java en instrucciones para el manejador de base de datos
+
+

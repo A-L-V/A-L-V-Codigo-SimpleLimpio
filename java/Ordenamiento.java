@@ -1,4 +1,4 @@
-//ordenar arreglo de menor a mayor
+no//ordenar arreglo de menor a mayor
 /*
 El metodoIntercambiar busca colocar el mayor al final,
 ya en el final este no se toca y 
