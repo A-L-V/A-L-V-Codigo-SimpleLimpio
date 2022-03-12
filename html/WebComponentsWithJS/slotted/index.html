@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slotted</title>
+  </head>
+  <body>
+    <my-element>
+      <span slot="title">Slotted</span>
+      <span class="text" slot="parrafo">
+        Pseudoelemento que sirve para poder agregar estilos específicos a todo el contenido dinámico que venga desde fuera del componente y se vaya a colocar en las etiquetas slot.
+        Beneficio
+Que los devs que usen el componente puedan modificar las cosas desde fuera sin tener que entrar al componente para cambiar los estilos.
+Este pseudoelemento solo va a funcionar cuando tengamos un shadow DOM
+        </span>
+    </my-element>
+    <script type="module" src="./my-element.js"></script>
+  </body>
+</html>

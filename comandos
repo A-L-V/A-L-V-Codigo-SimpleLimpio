@@ -1,0 +1,71 @@
+Wildcars:
+Son un símbolo usado para remplazar o representar uno más caracteres donde comúnmente se utiliza el * .
+% - Usado en SQL para relacionar más de un caracteres 0 o más veces.
+* - Relaciona cualquier carácter 0 o más veces.
+? - Para relacionar un caracter una vez.
+[ ] - Realizamos relaciones a través de expresiones regular.
+Clases dentro de los Wildcards:
+[:alnum:] Coincide con cualquier carácter alfanumérico
+[:alpha:] Coincide con cualquier carácter alfabético
+[:digit:] Coincide con cualquier número
+[:lower:] Coincide con cualquier letra minúscula
+[:upper:] Coincide con cualquier letra mayúscula
+
+# prefijo
+dir *.mp3
+# postfijo
+dir main.*
+ 
+ 
+Redirecciones:
+Redirige el input de un comando hacia un archivo.
+comando < archivo
+
+Redirige la salida de un comando a un archivo. El mismo sobrescribe el contenido del archivo a donde se redirige la salida.
+comando > archivo
+
+Concatena la salida de un comando a un archivo. Si no existe el archivo lo crea.
+comando >> archivo
+
+Redirige la salida de error de un comando a un archivo.
+comando 2> archivo
+
+Redirige la salida de un comando, que se ejecuto satisfactoriamente o un comando que presento errores, a un archivo.
+comando > archivo 2>&1
+
+Redirige la salida del comando1 a la entrada del comando2
+comando1 | comando2
+
+Ejecuta de manera consecutiva
+comando1; comando2
+
+Ejecucion asincrona
+comando1 & comando2
+
+Ejecuta el comando2 si se ejecuta bien el comando1
+comando1 && comando2
+
+Ejecuta el comando1 o 2
+comando1 || comando2
+
+Permisos:
+0: 000
+x: 1
+w: 2
+r: 4
+xwr: 777
+-u:user
+-g: gruoup
+-o: otros
+-a: todos
+
+Archivos:
+tar -czvf comprimir descomprimir
+
+Procesos:
+ps 
+
+ver mas recursos que se consumen
+top 
+si la letra h da ayudita
+

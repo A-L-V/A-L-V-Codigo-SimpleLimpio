@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>disconnected callback nos servirá para deslindar de eventos a nuestros componente, dentro de esa función podremos retirarlos para liberar espacio en memoria.
+      La ventaja de usar este método, es que si por ejemplo usamos remove() tendríamos problemas con los nodos hijos conectados al elemento a remover. Pero disconnectedCallback nos ayuda a deslindar esta conexión.
+
+<a href="https://developer.mozilla.org/es/docs/Web/Web_Components/Using_custom_elements#usando_callbacks_de_ciclo_de_vida">Usando callbacks de ciclo de vida</a>
+    </p>
+    <my-custome-element></my-custome-element>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,126 @@
+//inicar un proyecto
+npm init
+npm init -y //fast
+
+//instalar dependencias
+npm i <pkg> --save | npm i "" -S //necesaria dependencias
+npm i <pkg> -D | --save-dev //entorno de desarrollo
+npm i <pkg> -g //entorno global
+npm i <pkg> -O //opcional
+npm i <pkg> --dry-run //simular instalacion
+npm i <pkg> -f //forzar
+npm i //reinstalar de package.json
+npm i <pkg>@<version>
+npm i <pkg>@lastest 
+
+//lista 
+npm list
+npm list -g --depth 0 //paquetes globales
+
+//Actualizar
+npm outdate //ver paquetes desactualizados y ultima versiones
+npm update 
+
+//Eliminar
+npm unistall <pkg>
+npm unistall <pkg> --no-save //quitar del node_modulo, pero no del package.json
+
+
+//Crear scripts de forma nativa en el package.json
+"scripts": {
+   "build" : "webpack --mode production",
+   "start" : "webpack-dev-server --open --mode development"
+   "hola"  : "node src/ --fix",
+   "deploy": "npm run format && npm run build"
+}
+npm run hola
+npm run deploy
+
+//errores comunes
+npm run build --dd//activar el modo mas detallado
+npm cache clean --force //eliminar cache
+npm cache verify 
+eliminar node_modulos & npm install //verificar si hay valores corrupts o instalacion incompleta
+
+sudo npm i -g rimraf
+rimraf node_modules/  //elimnar la carpeta de forma correcta 
+
+//seguridad
+npm audit
+npm audit --json//generar la informacion
+npm update packagemalo -depth 2
+npm audit fix//reparar todos los errores	
+
+//crear paquete NPM
+mkdir nombre
+git init
+npm init	
+touch src/index.js
+
+// en el index.js
+const messages = [
+    "David",
+    "Diana",
+    "Ana Maria",
+    "Isabela",
+    "Antonio",
+    "Norma"
+]
+//Crear función para enviar aleatoriamente  los nombres del arreglo
+const randomMsg = () => {
+    const message = messages[Math.floor(Math.random()*messages.length)]
+    console.log(message)
+}
+// Exportar como un módulo
+module.exports = { randomMsg }
+
+mkdir bin
+
+touch bin/global.js //crear la configuracion y agregar
+#!/usr/bin/env node
+// se va ejecutar dentro de bash
+//Variable que llama la funcion que exportamos
+let random = require('../src/index.js')
+//Ejecuto la funcion
+random.randomMsg()
+
+//en el package.json agregar
+
+ "bin": {
+    "random-msg": "./bin/global.js"
+  },
+  "preferGlobal": true
+
+sudo npm link //ejecutar en la funcion random-msg
+npm link "@boogst/<proyet-name>"//si queremos usar el paquete anterior en algun proyecto debemos refenciarlo con este comando. Recuerda que debe estar ubicado en el proyecto nuevo que quieras implementar este paquete
+
+npm unlink "@boogst/<proyect-name>" deslinkear el paquete
+
+sudo npm install -g ~/Carpeta/random-messages/ //otra forma
+
+random-msg //ejecutar de forma global en el sistema
+//registrate en la pagina npmjs.com
+
+//logearnos en la terminal
+npm adduser (usuario,contraña,email)
+npm login
+
+//publicar
+npm publish
+npm unpublish -f//des publicar un paquete
+//agregar README.md
+//estandar en ingles 
+# random-message
+#install
+#usage
+#Contributing
+#License
+
+git init
+
+npm version patch //cambiar de actualizacion
+npm version minor //cambio de correcion de errores
+npm version mahjor //cambio grandes
+
+npm publish
+

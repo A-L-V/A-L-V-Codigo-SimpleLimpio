@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Properties</title>
+    <style>
+      my-element {
+        --primary-color: blue;
+        --heading-primary: 40px;
+      }
+      .segundo {
+        --primary-color: red;
+      }
+      .tercero {
+        --secondary-color: lime;
+      }
+    </style>
+  </head>
+  <body>
+    <my-element>
+      <span slot="title">Hola desde un componente 1</span>
+      <span slot="parrafo">generar un componente reutilizable implica que no tenemos que ir hasta el código de este y cambiarlo, entonces lo que haremos es re asignar nuestros estilos por fuera.</span>
+    </my-element>
+    <my-element class="segundo">
+      <span slot="title">Hola desde un componente 2</span>
+      <span slot="parrafo">Con shadow dom esta idea que se plantea de poder cambiar nuestros estilos por fuera no es posible, pero esto en cierto punto es mentira ya que podremos hacerlo atraves de las Custom Properties que son unas variables en donde las generamos y de valor estas tienen un estilo.</span>
+    </my-element>
+    <my-element class="tercero">
+      <span slot="title">Hola desde un componente 3</span>
+      <span slot="parrafo">Hola desde una etiqueta de parrafo</span>
+    </my-element>
+    <script type="module" src="./my-element.js"></script>
+  </body>
+</html>

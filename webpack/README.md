@@ -1,0 +1,37 @@
+# Teoria 
+https://relieved-son-a8f.notion.site/Babel-Loader-para-JavaScript-b866f07aa34f4cd1abd72e7887cd14da
+
+
+# Inicializar:
+
+si(primera ves intalando webpack)
+    npm install --global webpack webpack-cli
+
+npm i --save-dev webpack webpack-cli
+
+# Crear el Proyecto
+mkdir [proyecto] 
+cd [proyecto]
+npm init
+npm i --save-dev webpack webpack-cli
+
+# Iniciar babelrc
+ir al archivo src/.babelrc
+
+# Crear archivo de configuracion produccion webpack
+ir al archivo webpack.config.js
+
+# Crear archivo de configuracion de desarrollo webpack
+ir al archivo webpack.config.dev.js
+
+# En Packeage.json
+Agregamos los scripts, u tambien puede personalizarlos
+
+# Crear archivos Script para el build
+El archivo scripts/create-env.js esta personalizado para crear el .env en netfily
+
+# [Netlify] 
+https://www.netlify.com/
+corre tu repositorio en la nube 
+
+configuracion en archivo netfily.toml para desplegar la aplicacion 

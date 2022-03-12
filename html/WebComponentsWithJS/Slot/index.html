@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Elements</title>
+  </head>
+  <body>
+    <h2 class="title">Content Slot</h2>
+    <my-element>
+      <span slot="title">Manejo de datos</span>
+      <span slot="parrafo">Es una etiqueta de HTML 5 que nos va a ayudar a poder generar el placeholder en donde irá el texto o cierto contenido que necesitos para que, afuera de le etiqueta, nosotros podamos pasarle contenido que el componente pueda renderizar.
+        Básicamente modificamos la etiqueta en HTML y JS hará el trabajo sucio por nosotros.</span>
+    </my-element>
+    <script type="module" src="./my-element.js"></script>
+  </body>
+</html>

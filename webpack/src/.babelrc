@@ -1,0 +1,13 @@
+/*
+Babel te permite hacer que tu código JavaScript sea compatible con todos los navegadores
+npm install -D babel-loader @babel/core @babel/preset-env @babel/plugin-transform-runtime
+*/
+{
+    "presets": [
+        "@babel/preset-env"
+    ],
+    "plugins": [
+        "@babel/plugin-transform-runtime"
+    ]
+
+}

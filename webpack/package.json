@@ -1,0 +1,27 @@
+{
+    "name": "proyecto",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": { 
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "build": "node ./scripts/create-env.js && webpack --mode production --config webpack.config.js",
+      "build:watch": "webpack --watch --mode production --config webpack.config.js",
+      "build:analyze": "webpack --mode production --config webpack.config.js --analyze",
+      "dev": "webpack --mode development --config webpack.config.dev.js",
+      "start": "webpack serve --config webpack.config.dev.js"
+    },
+    "repository": {
+      "type": "git",
+      "url": ""
+    },
+    "keywords": [
+      "javascript",
+      "html",
+      "css"
+    ],
+    "author": "",
+    "license": "MIT",
+    "homepage": ""
+}
+  

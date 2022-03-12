@@ -1,3 +1,4 @@
+/*
 <link rel="stylesheet" href="desktop.css" media="screen and (min-width: 800px)"/>
 
 <style>
@@ -7,7 +8,11 @@
 </style>
 
 atributo: style="color: red ;"
+*/
 
+
+/*SELECTORES*/
+/*de tipo*/
 p {
 	font-size: 30px;
 }
@@ -15,3 +20,136 @@ p {
 .clase {
 
 }
+
+#id {
+
+}
+
+/*de atributo*/
+a[href=""]{
+
+}
+
+/*Universal*/
+* {
+	
+}
+
+/*SELECTORES COMBINADOS*/
+/*descendiente*/
+div p {
+
+}
+
+/*hijo directo*/
+div > p {
+
+}
+/*Elemento adyacente*/
+div + p {
+
+}
+/*General de hermanos*/
+div ~ p {
+
+}
+/*PsudoClase: acciones del usuario*/
+p:active p:focus{
+
+}
+
+/*parrafo que este de segunda */
+div p: :nth-child(2){
+
+}
+
+/*PsudoElementos:: acceder elementos html no accesible */
+p::first-letter {
+
+}
+p::after p::before {
+	content: "emoji*";
+}
+
+::placeholder{
+	
+}
+
+/*Especificad*/
+
+p !important {
+	/*10000*/
+}
+
+/*estilos en linea*/
+	/*1000*/
+
+#id{
+	/*100*/
+
+}
+
+.clases .atributos .psudoclases{
+	/*10*/
+
+}	
+
+p | .psudoelementos {
+	/*1*/
+}
+* {
+	/*0*/
+	display: flex
+
+}
+
+/*Display: tipo de visualización que van a tener nuestros elementos HTML.
+
+block:  Estos elementos ocupan toda la pantalla, por lo que si quieres agregar otro elemento, este se agregará automáticamente abajo. 
+No importa que tengas poco contenido, el elemento sí o sí va a ocupar toda la pantalla
+
+inline: Estos elementos son los que su caja mide exactamente lo mismo que su contenido. 
+Estos elementos los podemos usar en textos y en lugar de que se agreguen en una nueva línea se agregaran justo al ladito del texto. 
+❗ Tienen como desventaja que no podemos ponerles márgenes ni tampoco podemos cambiar su tamaño.
+
+inline-block: pone el siguiente al costado
+Esto es una mezcla. Con este display podemos tener tanto los beneficios de inline como de block, es decir, podemos tener elementos que no ocupen todo el ancho de la pantalla, sino que ocupen solamente lo que su contenido ocupa, pero también vamos a poder darle márgenes y podremos cambiar su tamaño 🤠.
+
+flex: 
+
+grid: 
+*/
+
+/*Posicionamiento
+
+Static
+Utilizamos este valor no vamos a tener ningún cambio porque todas las etiquetas vienen con este valor.
+Cuando estamos en este position no podemos utilizar las propiedades left, top, right y bottom.
+
+Absolute
+Con absolute el elemento sale de su lugar y el navegador reacomoda los elemento, poniendo otro elemento en el lugar del elemento con position absolute. Podemos posicionar al elemento como queramos.
+Relative
+Con relative no sucede lo mismo que absolute, el elemento mantiene su lugar, pero podemos posicionarlo donde queramos.
+Lo podemos usar como contenedor para que los elementos que tengan un position absolute tomen como referencia al padre que nosotros queremos (se adhiere al elemento relativo más cercano) y no a otro, delimita el movimiento del hijo.
+
+Fixed
+Este valor de position nos permite que el elemento que queramos nos siga a todos lados desde el momento en el que nos topemos con él.
+
+Sticky
+Es similar a fixed con la diferencia que cuando encuentra a otro elemento con su mismo position, sticky, le da lugar al ese elemento.
+
+Initial
+Vuelve el position de un elemento a como estaba originalmente.
+
+Inherit
+Lo usamos si queremos que nuestro elemento herede el position de su padre.
+*/
+
+
+/*Z-index
+
+Contexto de Aplilamiento
+
+
+
+*/

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Host</title>
+  </head>
+  <body>
+    <a href="https://developer.mozilla.org/es/docs/Web/CSS/:host"> Mas info</a>
+        <my-element>
+      <span slot="title">Host</span>
+      <span slot="parrafo">Pseudoclase que utilizaremos para darle estilos a nuestro componente web (no se trata necesariamente de los estilos visuales).
+        <br/>
+        Se trata de los estilos que vienen definidos por default con una etiqueta, como pueden ser display, padding y margin.
+      </span>
+    </my-element>
+    <my-element>
+      <span slot="title">Hola desde un componente 1</span>
+      <span slot="parrafo">**:host **{estilos para el componente}  </span>
+    </my-element>
+    <my-element class="blue">
+      <span slot="title">Hola desde un componente 2: :host(.blue) {estilos para el componente con la clase blue}
+      </span>
+      <span slot="parrafo">Teniendo varias instancias de un componente, si a una le agregamos una clase por ejemplo ‘blue’
+      </span>
+    </my-element>
+    <my-element yellow>
+      <span slot="title">Hola desde un componente 3:  :host([yellow]) {estilos para el elemento que tenga el atributo yellow}
+      </span>
+      <span slot="parrafo">También podemos darle estilos por atributo. Por ejemplo si a una instancia le agregamos el atributo ‘yellow’
+      </span>
+    </my-element>
+    <article class="card">
+      <my-element yellow>
+        <span slot="title">Hola desde un componente 4:  :host-context(article.card) {estilos}
+        </span>
+        <span slot="parrafo">También podemos agregar cierto contexto.
+          Por ejemplo, si tenemos una instancia del componente dentro de un article con una clase ‘card’</span>
+      </my-element>
+    </article>
+    <my-element yellow>
+      <span slot="title">Hola desde un componente 5: :host([yellow]) h1 {estilos}
+      </span>
+      <span slot="parrafo">Hacer cambios al contenido del componente   </span>
+    </my-element>
+    <script src="./my-element.js"></script>
+  </body>
+</html>
