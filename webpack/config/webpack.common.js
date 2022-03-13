@@ -3,12 +3,11 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 /*
     añadir html a webpack
-    npm i html-webpack-plugin -D 
+    npm i html-webpack-plugin html-loader -D
     Es un plugin para inyectar javascript, css, favicons, y nos facilita la tarea de enlazar los bundles a nuestro template HTML.
 */
 
 const CssMinimizerPlugin = require('mini-css-extract-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 /*
     añadir estilos a webpack
     npm i mini-css-extract-plugin css-loader -D
@@ -42,18 +41,38 @@ const CopyPlugin = require('copy-webpack-plugin');
     <img src={`${github}`} />
 */
 
-
-/*
-    //loader de fuentes
-    npm i url-loader file-loader -D
-*/
-
 const TerserPlugin = require('terser-webpack-plugin');
 /*
     optimizacion:
     hashes, compresion,minificacion de archivos
     npm i css-minimizer-webpack-plugin terser-webpack-plugin -D
 */
+
+/*
+    //loader de fuentes
+    npm i url-loader file-loader -D
+*/
+
+/*
+    alias
+    nos permiten otorgar nombres paths específicos evitando los paths largos
+    '@nombreDeAlias': path.resolve(__dirname, 'src/<directorio>'),
+
+    import modulo from "@ejemplo/archivo.js";
+
+ */
+
+
+
+/*
+    alias
+    nos permiten otorgar nombres paths específicos evitando los paths largos
+    '@nombreDeAlias': path.resolve(__dirname, 'src/<directorio>'),
+
+    import modulo from "@ejemplo/archivo.js";
+
+ */
+
 const Dotenv = require('dotenv-webpack');
 /*
     variables de entorno
@@ -78,41 +97,36 @@ const Dotenv = require('dotenv-webpack');
 
 */
 
-const { CleanWebpackPlugin} = require('clean-webpack-plugin');
-
-/*
-    modo produccion
-    tenemos varios archivos repetidos los cuales se fueron acumulando por compilaciones anteriores
-    Para ello puedes limpiar la carpeta cada vez que hacemos un build
-    npm i clean-webpack-plugin -D
-*/
 
 
 module.exports = {
-    entry:'./src/index.js',
+    entry: './src/index.js',
     mode:'production',
+    resolve: {
+        extensions: ['.js', '.jsx'],
+    },
     output: { 
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, '../dist'),
         filename: '[name].[contenthash].js',//(optimizacion); filename: 'main.js', (default)
         assetModuleFilename: 'assets/images/[hasg][ext][query]'  //loader de fuentes
         },
     resolve: {
-        extensions: ['.js'],
+        extensions: ['.js','.jsx'],
         alias: {  //alias
-            '@utils': path.resolve(__dirname, 'src/utils/'),
-            '@templade': path.resolve(__dirname, 'src/templates/'),
-            '@styles': path.resolve(__dirname, 'src/styles/'),
-            '@images': path.resolve(__dirname, 'src/assets/images/'),
+            '@utils': path.resolve(__dirname, './../src/utils/'),
+            '@templade': path.resolve(__dirname, './../src/templates/'),
+            '@styles': path.resolve(__dirname, './../src/styles/'),
+            '@images': path.resolve(__dirname, './../src/assets/images/'),
         } 
     },
     module: { 
         rules: [
-            {   //loader
-                test: /\.m?js$/,     
+            {   //loader babel
+                test: /\.(js|jsx)$/, 
                 exclude: /node_modules/,   
                 use: {
                     loader: 'babel-loader'
-                }
+                },
             },
             {   //html
                 test: /\.html$/,
@@ -120,7 +134,7 @@ module.exports = {
             },
             {   //css o stilos
                 test: /\.css$/i, //preprocesadorres o procesadores, test: /\.css|.styl$/i,
-                use: [MiniCssExtractPlugin.loader, 
+                use: [CssMinimizerPlugin.loader, 
                     'css-loader',
                     //'stylus-loader'
                 ],
@@ -152,24 +166,23 @@ module.exports = {
             filename: './index.html',
             inject: true,
         }),
-        new MiniCssExtractPlugin({
+        new CssMinimizerPlugin({
             filename: 'assets/[name].[contenthash].css'  //optimizacion
         }),
         new CopyPlugin({     //mover recursos
             patterns: [
                 {
-                    from: path.resolve(__dirname, "src","assets/images"),
+                    from: path.resolve(__dirname, "../src","assets/images"),
                     to: "assets/images"
                 }
             ]
         }),
         new Dotenv(),  //variables de entorno
-        new CleanWebpackPlugin(), //limpiar webpack
     ],
     optimization: {
         minimize: true,
         minimizer: [
-            new MiniCssExtractPlugin(),
+            new CssMinimizerPlugin(),
             new TerserPlugin()
         ]
     }
