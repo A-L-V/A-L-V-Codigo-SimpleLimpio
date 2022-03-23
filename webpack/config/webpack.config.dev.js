@@ -3,6 +3,10 @@ const path = require('path');
 const {merge} = require('webpack-merge')
 const common = require('./webpack.common.js')
 
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin') //fash refresh webpack-react
+const {HotModuleReplacementPlugin} = require('webpack') 
+//fash refresh webpack-react
+
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 /*
     webpack dev server
@@ -28,25 +32,9 @@ const devConfig = {
     mode: "development",
     //devtool: 'source-map',     //webpack DevTools
     plugins: [ 
-        ...common.plugins,
-        /*new HtmlWebpackPlugin({
-            template: './public/index.html',
-            filename: './index.html',
-            inject: true,
-        }),
-        new MiniCssExtractPlugin({
-            filename: 'assets/[name].[contenthash].css' 
-        }),
-        new CopyPlugin({    
-            patterns: [
-                {
-                    from: path.resolve(__dirname, "src","assets/images"),
-                    to: "assets/images"
-                }
-            ]
-        }),
-        new Dotenv(),*/
         new BundleAnalyzerPlugin(),
+        new HotModuleReplacementPlugin(), //fash refresh webpack-react
+        new ReactRefreshWebpackPlugin() //fash refresh webpack-react
     ],
     devServer: {
         static: {
@@ -54,6 +42,7 @@ const devConfig = {
         },
         port: 3000,
         compress: true,
+        hot:true,  //fash refresh webpack-react
     },
     target: "web"
 }

@@ -1,6 +1,7 @@
 
 //asignaciones
 
+/*
 = asignar
 == comparar, 3 == "3", true;
 === validar, 3 == "3", false;
@@ -9,4 +10,18 @@
 ++, a++, incrementa + 1 
 +=n, a+=n, incrementa + n;
 
+*/
 
+
+// Tipos de datos
+/*
+    primitivos
+
+    predeterminados: Date-expresion regular-error
+    
+    definidos: funciones-clases
+
+    array: JSON-matriz-vector
+
+    Objetos especialees: Objeto global-prototype-otros
+*/

@@ -17,25 +17,6 @@ const { CleanWebpackPlugin} = require('clean-webpack-plugin');
 const prodConfig = {
     mode: "production",
     plugins: [
-        ...common.plugins, 
-/*
-        new HtmlWebpackPlugin({
-            template: './public/index.html',
-            filename: './index.html',
-            inject: true,
-        }),
-        new MiniCssExtractPlugin({
-            filename: 'assets/[name].[contenthash].css'  //optimizacion
-        }),
-        new CopyPlugin({     //mover recursos
-            patterns: [
-                {
-                    from: path.resolve(__dirname, "src","assets/images"),
-                    to: "assets/images"
-                }
-            ]
-        }),
-        new Dotenv(),  //variables de entorno*/
         new CleanWebpackPlugin(), //limpiar webpack
     ],
 }

@@ -62,6 +62,11 @@ en .babelrc agregar
 crear el script de package.json
     "start":  "webpack-dev-server -d --open"
 
+##  fash refresh webpack-react
+npm i -D @pmmmwh/react-refresh-webpack-plugin react-refresh
+
+agregar en webpack dev config
+
 
 # [Netlify] 
 https://www.netlify.com/

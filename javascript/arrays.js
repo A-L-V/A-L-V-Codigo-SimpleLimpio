@@ -3,6 +3,7 @@ var articulo = [
     {nombre: "tv", costo: 500},
 ];
 
+/*Recorrido */
 //filtrar, poner a un nuevo array los filtrado, no cambia el original
 var articulosFilters = articulo.filter(function(articulo){
     return articulo.costo <= 400
@@ -11,6 +12,8 @@ var articulosFilters = articulo.filter(function(articulo){
 var nombreArticulos = articulo.map(function(articulo){
     return articulo.nombre
 });
+
+
 //find, filtra el articulo  
 var encuentraArti = articulo.find(function(articulo){
     return articulo.nombre ==="tv"
