@@ -69,3 +69,16 @@ ver mas recursos que se consumen
 top 
 si la letra h da ayudita
 
+# Variables de entorno
+ln ~/Document/Dev Desarrollo //link simbolico, acceso directo
+printenv //imrpime el desarrollo, envelopment
+alias adsf = "comando"
+ponerlo en .bashrc
+
+# Comandos de busqueda
+which  "comando" 
+
+find "ruta desde buscar" -name file //buscar todos los archivos llamados file
+
+//buscar coincidencias de una busqueda dentro de un archivo de texto
+grep towes movies.ccs //bus 

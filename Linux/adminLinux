@@ -1,0 +1,275 @@
+# Permisos de archivos
+
+chmod u+x nombre-del-archivo
+sudo chown nuevo-usuario:grupo-usuarios nombre-del-archivo
+
+# Terminales de linux
+[1-5] consolas virtuales, [6] consola grafica
+sudo chvt //cambia la terminarl 
+tty //ver consola trabajada
+
+who | w //ver todas las conexiones de los usuarios activos
+
+ps -ft tty[num] //  Para filtrar los procesos y ver únicamente las conexiones de los usuarios usamos ps -ft tty.
+
+Este comando nos muestra el identificador de cada proceso. Para terminarlo podemos usar el comando kill -9 PID.
+
+# Manejo y monitoreo de procesos   
+ps //Para ver todos los procesos que corren en el sistema
+
+ps aux | grep User
+
+Control + z, detener el comando
+jobs //ver procesos detenidos
+fg //iniciar el proceso detenido
+
+nohup comando|script & //comando pero continuar con la comando y guardarlo con nohup
+cat nohup
+
+# Monitoreo de recursos del sistema
+top //ver informacion especifica del sistema 
+cat /proc/cpuinfo | grep -i "Processor" //ver los procesadores, en load average de top
+free -h //ver la memoria total
+du //como esta el uso del disco duro
+du -hsc "ruta"  //muestra el tamaño de ese directorio
+
+sudo ps auxf | sort -nr -k 3 | head -5// Muestra los 5 procesos que más uso hacen del CPU
+sudo ps auxf | sort -nr -k 4 | head -5// Muestra los 5 procesos que más uso hacen de la memoria RAM
+htop //Funciona como top pero funciona de forma más intuitiva
+
+# Análisis de los parámetros de red
+sudo ifconfig 
+ip a //ip address show
+ip -[4,6] a //ver ip v4-6
+route -n //ver gateway y otros ips
+nslookup nombredominio //Para visualizar la ip de cualquier dominio especifico.curl localhost
+curl localhost //Puede realizar simulaciones como las que hace Postman.
+wget nombredominio //Para obtener información desde internet.
+# Administración de paquetes acorde a la distribución Debian
+apt-get update ó apt update
+Actualización de los índices del SO.
+
+Cualquier update del SO se debe ejecutar con sudo.
+
+apt-get upgrade ó apt upgrade
+Para descargar e instalar los paquetes de actualización.
+
+En entornos productivos siempre se debe verificar que la información mostrada sea acorde a lo esperado.
+
+apt dist-upgrade
+Realiza actualizaciones a escala de kernel. Estas actualizaciones siempre requieren reinicio, a no de ser de tener Live Patch permite estas actualizaciones sin tener que hacer reinicio, pide registrar hasta 3 máquinas para este proceso.
+
+apt seach paquete ó apt-cache search
+Para realizar busqueda de paquetes. Para refinar la búsqueda agregar al final del nombre de paquete $, y encerrar todo el nombre del paquete entre comillas. “mysql-server$”.
+
+tzdata es el paquete que configura la hora del servidor. Para reconfigurarlo utilizamos dpkg-reconfigure tzdata.
+
+snap
+Otra (nueva) manera de buscar paquetes.
+snap search nombre_paquete ==> buscar un paquete.
+snap refresh --list ==> Para ver toda la lista de paquetes.
+snap info nombre_paquete ==> verificar la información de un paquete especifico.
+
+sudo apt search paquete//buscar paquetes
+
+# Usuarios
+id //Muestra el identificador único de mi usuario, del grupo al que pertenezco y los grupos de los cuales formo parte
+whoami //Muestra que usuario soy
+passwd [user] //Cambia la contraseña
+
+sudo useradd usuario// Crea un usuario
+sudo adduser usuario// Crea un usuario y solicita un password, además de otros datos
+sudo userdel usuario// Borra un usuario
+sudo usermod// Modifica un usuario
+
+cat /etc/passwd// Muestra todos los usuarios del sistema operativo
+cat /etc/shadow// Muestra las contraseñas del sistema operativo
+cat /usr/sbin/nombre_de_comando// Muestra el contenido de un comando
+
+su - usuario// Switch User, cambia de usuario
+groups usuario// Muestra a que grupos pertenece cierto usuario
+sudo gpasswd -a usuario grupo// Agrega un usuario a un grupo
+sudo gpasswd -d usuario grupo// Quita a un usuario de un grupo
+usermod -aG grupo usuario// Agrega un usuario a un grupo
+sudo -l// Muestra que permisos tiene el usuario actual
+## PAM: actualizar usuarios y permisos del SO
+
+pwscore// Evalúa si una contraseña es buena o mala del 0 al 100
+ulimit -a //Muestra los permisos que tiene el usuario actual. Modificadores
+/etc/security/time.conf //configurar logia de pam para login en tiempos determinados  
+
+# Autenticacion ssh
+Configuración
+1. En el servidor, abrir el archivo /etc/ssh/sshd_config con algún editor. Leer el archivo y configurar a gusto.
+2. En la consola de la máquina cliente abrir ssh-keygen para generar las llaves
+3. Elegir ubicación para guardar la llave privada
+4. Ejecutar ssh-copy-id -i directorio_de_llave/id_rsa.pub nombre_usuario@direccion_ip_del_servidor para copiar la llave pública al servidor
+5. Ejecutar ssh nombre_usuario@direccion_ip_del_servidor en la máquina cliente para conectarnos exitosamente de forma remota
+
+Si la conexión falla, podemos usar el modificador -v (verbose) en el comando ssh para poder ver la información que envían las máquinas que intentan conectarse.
+La “v” puede repetirse para mas informacion hasta cuatro veces// ssh -vvvv nombre_usuario@direccion_ip_del_servidor.
+
+Restringir el acceso al usuario root por ssh, y permitir solo un usuario determinado conectado
+Colocar en el archivo /etc/ssh/sshd_config del servidor las siguientes líneas
+PermitRootLogin no
+AllowUsers nombre_usuario
+reiniciar ssh
+
+# Servicios
+sudo systemctl status servicio// Estado de un servicio
+sudo systemctl enable servicio// Habilita un servicio
+sudo systemctl disable servicio// Deshabilita un servicio
+sudo systemctl start servicio// Enciende un servicio
+sudo systemctl stop servicio// Apaga un servicio
+sudo systemctl restart servicio// Reinicia un servicio
+sudo systemctl list-units -t service --all// Lista los servicios del sistema
+sudo systemctl unmask name.service //Enmascarar un servicio evitará que se inicie.
+sudo journalctl -fu servicio// Muestra el log de un servicio
+sudo journalctl --disk-usage// Muestra cuanto pesan los logs en el sistema operativo
+sudo journalctl --list-boots// Muestra los booteos de la computadora
+sudo journalctl -p critic|notice|info|warning|error// Muestra mensajes de determinada categoría de nuestros logs
+sudo journalctl -o json// Muestra los logs en formato json
+
+# Logs 
+find [ruta]// Buscar algo en el sistema operativo.
+find /etc -type f //-type Indica que tipo estamos buscando; archivos, directorios y enlaces
+find var/log/ -name "*.log" -type f// Indica el nombre de lo que estamos buscando
+find /var/log/ -iname "*.LOG" Indica el nombre de lo que estamos buscando, pero sin tener en cuenta mayúsculas y minúsculas
+find /var/log/ ! -name "*.log" // Niega la expresión que buscamos (es decir, busca lo contrario)
+find /var/ -mtime 10 2 //Muestra archivos con cambios en los últimos n minutos
+
+grep [string] [archivo] //Busca una cadena de caracteres o expresión regular en un archivo determinado. Si ejecutamos por ejemplo algo como comando | grep [string] vamos a filtrar el resultado de un comando por la cadena o regex que especifiquemos
+awk '{print $1}' /var/log/login.log //Muestra las direciones que accedieron aqui
+Es un lenguaje que nos ayuda a filtrar patrones en un archivo, organizarlos y darles formato
+
+Comandos útiles
+find /var/log/ -iname "*.log" -type f// Muestra los archivos de log que tenemos en el sistema
+sudo find /etc/ -mtime 10 2// Muestra los archivos de configuración que tuvieron salidas de error en los últimos diez minutos
+awk '{print $1}' /var/log/nginx/access.log | sort | uniq -c | sort -nr// Muestra las IP’s que se conectaron con nuestro servidor nginx
+awk '{print $9}' /var/log/nginx/access.log | sort | uniq -c | sort -nr Muestra los errores que surgieron en nuestro servidor nginx
+
+# Bash
+#!/bin/bash
+# Verificar la cantidad de espacio en el S.O
+# Desarrollado por Jhon Edison
+
+CWD=$(pwd)
+FECHA=$(date +"%F%T")
+echo $FECHA
+
+df -h | grep /dev > uso_disco_"$FECHA".txt
+df -h | grep /dev/sda2 >> uso_disco_"$FECHA".txt
+
+echo "Se ha generado un archivo en la ubicación $CWD"
+
+
+#!/bin/bash
+# Shell script para obtener una copia desde MySQL
+# Desarrollado por Jhon Edison
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+set -e
+
+readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+readonly SCRIPT_NAME="$(basename "$0")"
+
+run
+make_backup
+
+function assert_is_installed {
+	local readonly name="$1"
+	if [[ ! $(command -v ${name})]]; then
+		log_error "The binary '$name' is required but it isn't in 		our system"
+		exit 1
+	fi
+}
+
+function log_error {
+	local readonly message "$1"
+	log "ERROR" "$message"
+}
+
+function  log {
+	local readonly level="$1"
+	local readonly message="$2"
+	local readonly timestamp=$(date +"%Y-%m-%d %H:%M:%S") >&2 echo -e "${timestamp} [${level}] [$SCRIPT_NAME] ${message}"
+		
+}
+
+function run {
+	assert_is_installed "mysql"
+	assert_is_installed "mysqldump"
+	assert_is_installed "gzip"
+	assert_is_installed "aws"
+}
+
+function make_backup {
+	local BAK="$(echo $HOME/mysql)"
+	local MYSQL="$(which mysql)"
+	local MYSQLDUMP="$(which mysqldump)"
+	local GZIP="$(which gzip)"
+	local NOW="$(date +"+%d-%m-%Y")"
+	local BUCKET="xxxxx"
+	
+	USER="xxxxxx"
+	PASS="xxxxxx"
+	HOST="xxxxxx"
+	DATABASE="xxxxxx"
+
+	[! -d "$BAK" ] && mkdir -p "$BAK"
+
+	FILE=$BAK/$DATABASE.$NOW-$(date +"%T").gz
+	local SECONDS=0
+	
+	$MYSQLDUMP --single-transaction --set-gtid-purged=OFF -u $USER -p $PASS -h $HOST $DATABASE | $GZIP -9 > $FILE
+
+	duration=$SECONDS
+	echo "$($duration / 60) minutes"
+	aws s3 cp $BAK "s3://$BUCKET" --recursive
+}
+
+# Gestion de vulnerability
+Malas prácticas
+
+No desactivar el usuario root
+Realizar un login con usuario y password (sin ssh)
+No validar la versión de software usada
+Utilizar comandos r* o telnet
+No identificar los servicios y puertos abiertos en el S.O
+No gestionar correctamente los permisos de los usuarios
+
+
+Buenas prácticas
+Verificar las actualizaciones de seguridad y realizar la instalación de las mismas.
+
+Software útil para la gestión de vulnerabilidades
+Lynis: Analiza nuestro servidor y nos da recomendaciones
+
+Manuales y frameworks útiles para la seguridad de nuestro servidor
+
+SCAP: El Security Content Automation Protocol es un conjunto de reglas sobre la expresión y manipulación de información relacionada con configuraciones y fallos.
+OWASP: El Open Web Application Security Project es un proyecto de código abierto destinado a pelear contra la inseguridad informátic
+
+# Firewall
+Comando
+sudo ufw status: Muestra el estado (activo/inactivo) y las reglas del firewall. Con el modificador numbered me muestra las reglas numeradas
+sudo ufw allow puerto: Habilita un puerto
+sudo ufw enable: Enciende el firewall
+sudo ufw status numbered: Muestra el estado enumerado
+sudo ufw delete numero_de_regla: Borra una regla
+sudo ufw allow from direccion_ip proto protocolo to any port puerto: Restringe las direcciones ip que pueden conectarse a cierto puerto. Recordar que SSH trabaja con el protocolo TCP
+sudo ufw allow from ipPriv proto tcp to any port 22 comment "permitir ssh ip"
+sudo ufw reset: Elimina todas las reglas
+
+Recomendación
+
+Abrir al público únicamente el puerto 80 (http), 443 (https). Para un conjunto de IP’s específicas, habilitar el puerto 22 (ssh)
+
+nmap -sV -sC -0 -oA nombre_de_archivo dirección_ip_del_servidor: Realiza un mapeo de la red
+nikto -h ip_del_host -o nombre_de_archivo: Escanea vulnerabilidades en un servidor
+
+Lynis: Herramientas de auditoria de seguridad en Linux | OPENSCAN
+sudo lynis audit system: Realiza un escaneo del sistema operativo, mostrándonos sugerencias y el estado de peligro de ciertos detalles en nuestra distribución
+
+
