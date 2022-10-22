@@ -1,0 +1,74 @@
+const API = 'https://randomuser.me/api/';
+
+const getData = async (id) => {
+  const apiURl = id ? `${API}${id}` : API;
+  try {
+    const response = await fetch(apiURl);
+    const data = await response.json();
+    return data.results[0];
+  } catch (error) {
+    console.log('Fetch Error', error);
+  };
+};
+
+export default getData;
+
+
+
+/*-------------------------------------- */
+const promesa = Promise((resolve, reject) => {
+  if(true){
+    resolve()
+  }else {
+    reject()
+  }
+}).then(() => {
+  console.log
+}).catch(()=> {
+  console.warn
+}) 
+/*------------------------------------------------ */
+
+const apiKey = "sdafdasfowoekr3rrw";
+const peticion = fetch('httpp:/api/')
+
+peticion
+  .then(resp => {
+  resp.json()
+  })
+  .then(({data})   => {
+    const {url} = data.images.original
+  })
+  .catch(
+  console.warn
+)
+/*------------------------------------------ */
+
+const getImagen = async() => {
+
+  try {
+
+      const apiKey = 'C1khQe3Z7R1W2lfTO9myKeuShdqFYSGC';
+      const resp   = await fetch(`http://api.giphy.com/v1/gifs/random?api_key=${ apiKey }`);
+      const { data } = await resp.json(); 
+
+      const { url } = data.images.original;
+
+      const img = document.createElement('img');
+      img.src = url;
+      document.body.append( img );
+
+  } catch (error) {
+      // manejo del error
+      console.error(error)
+  }
+  
+  
+  
+}
+
+getImagen();
+/*-------------------------------------------- */
+var activo = true
+const mensaje = (activo) ? 'activo': 'inactivo'
+const mensaje2 = activo && 'Activo'

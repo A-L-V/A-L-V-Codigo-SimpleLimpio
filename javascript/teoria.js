@@ -25,3 +25,14 @@
 
     Objetos especialees: Objeto global-prototype-otros
 */
+
+//importaciones
+//el otro archivo debe tener:
+export{
+    xd as default,
+    xd2,
+    xd3
+}
+
+import xd, {xd2, xd3} from '.'
+

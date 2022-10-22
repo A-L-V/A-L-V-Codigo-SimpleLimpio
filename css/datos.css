@@ -1,16 +1,17 @@
-variables 
+/*variables*/ 
 :root {
 	--primary-color: #003476;
 	--header-size: 4rem;
 }
 
-llamarlo con:
+/*llamarlo con:*/
 
 p{
 	font-size: var(--header-size);
 }
 
-#-------------------------------------------------
+/*-------------------------------------------------*/
+/*
 Medidas
 
 Absolutas:
@@ -27,14 +28,18 @@ usar con html{font-size: 15%;}
 max-min(width-height):
 
 usar vh como si fuera %
-#------------------------------------------------
+*/
+/*#------------------------------------------------*/
+/*
 combinadores
 
 hermano adyacente o cercano: div + p {}
 hermano general : div ~ p {}
 hijo : div > p {}
 descendiente : div p {}
-#-------------------------------------------------
+*/
+/*-------------------------------------------------*/
+/*
 pseudo
 
 Pseudo clases: define el estilo de un estado especial de un 
@@ -54,3 +59,4 @@ p::after{
 	content: "	|	"; 
     //despues del elemento agrega este contenido
 }
+*/

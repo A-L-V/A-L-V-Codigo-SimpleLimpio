@@ -2,7 +2,7 @@
 const anuma= 23.1;//no reclaracion o cambio de valor
 var nombre = ["a",3,"a"]; //puedes volvera declararlo: var nombre ="alfredo"
 let persona = {  //objeto y let: no puedes volver a declararlo con let pero si cambiar su valor, 
-    nombre="diego",
+    nombre: "diego",
     edad :30,
     detalle: function(){
         console.log('persona ${this.nombre} ${this.edad}')
@@ -58,7 +58,7 @@ studen.prototype.eliminarultimo = function(nuevo)  {
    this.cursoAprobados.pop();
 }
 
-const juanita = new studen("a",["curso1","curso2"]);
+const juanita1 = new studen("a",["curso1","curso2"]);
 
 //clase ejemplo
 class studen {
@@ -78,8 +78,8 @@ class studen {
     }
 }
 
-const miguel= new studen("miguel", ["mate"]);
-const miguel new studen({
+const miguel1= new studen("miguel", ["mate"]);
+const miguel2 = new studen({
     name: "Miguel",
     cursos: ["mate"]
 });

@@ -1,4 +1,6 @@
 /*
+Llamar CSS
+
 <link rel="stylesheet" href="desktop.css" media="screen and (min-width: 800px)"/>
 
 <style>
@@ -10,97 +12,101 @@
 atributo: style="color: red ;"
 */
 
+/*-------------------------------------------------------------------------------------*/
 
 /*SELECTORES*/
 /*de tipo*/
+h1, h2 { /*Aplica para todo h1 y h2*/
+	font-size: 80px;
+}
+
 p {
 	font-size: 30px;
 }
 
 .clase {
-
+	font-size: 10px;
 }
 
 #id {
-
+	font-size: 20px;
 }
 
 /*de atributo*/
 a[href=""]{
-
+	font-size: 4px;
 }
+
 
 /*Universal*/
 * {
-	
+	font-size: 50px;
 }
 
 /*SELECTORES COMBINADOS*/
 /*descendiente*/
 div p {
-
+	font-size: 50px;
 }
 
 /*hijo directo*/
 div > p {
-
+	font-size: 50px;
 }
 /*Elemento adyacente*/
 div + p {
-
+	font-size: 50px;
 }
 /*General de hermanos*/
 div ~ p {
-
+	font-size: 50px;
 }
+
+/*-------------------------------------------------------------------------------------*/
+
 /*PsudoClase: acciones del usuario*/
 p:active p:focus{
-
+	font-size: 50px;
 }
 
 /*parrafo que este de segunda */
-div p: :nth-child(2){
-
+div p::nth-child(2){
+	font-size: 50px;
 }
 
 /*PsudoElementos:: acceder elementos html no accesible */
 p::first-letter {
-
+	font-size: 50px;
 }
 p::after p::before {
 	content: "emoji*";
 }
 
 ::placeholder{
-	
+	font-size: 50px;
 }
 
 /*Especificad*/
-
-p !important {
-	/*10000*/
+p{
+	font-size: 50px!important;
 }
 
 /*estilos en linea*/
 	/*1000*/
 
 #id{
-	/*100*/
-
+	font-size: 50px;
 }
 
 .clases .atributos .psudoclases{
-	/*10*/
-
+	font-size: 50px;
 }	
 
 p | .psudoelementos {
-	/*1*/
+	font-size: 50px;
 }
 * {
-	/*0*/
 	display: flex
-
 }
 
 /*Display: tipo de visualización que van a tener nuestros elementos HTML.
@@ -150,6 +156,94 @@ Lo usamos si queremos que nuestro elemento herede el position de su padre.
 
 Contexto de Aplilamiento
 
-
-
 */
+
+/*Flex box
+Ordena de manera sistematica el interior de los hijos
+*/
+.flex-container {
+	display: flex;
+	flex-direction: column; 
+	flex-wrap: wrap; /*Al achicar el tamaño este se desplaza hacia la siguiente fila y no se bloquea*/
+}	
+
+.item-1 {
+	flex-shrink: 0;/*que no se encoja*/
+}
+
+.item-1 {
+	flex-grow: 0;/*ocupa el resto de espacio*/
+}
+
+.flex-container{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+/*
+css grid
+ordena de varias manera los hijos
+*/
+.grid {
+	display: grid;
+	grid-template-columns: 200px auto 200px; /*tamaño y cantidad de comlunas, el auto autocompleta el espacio*/
+	grid-template-columns: repeat(3,auto); /*3 columnas, con tamaño auto*/
+	grid-template-columns: 1fr 2fr 2fr; /*fr: frames- divisiones de pantalla*/
+	grid-template-rows: 1fr 2fr 3fr; /*ajusta tamaño de height de la pantalla*/
+	grid-gap: 1rem; /*agrega un margin a todos*/
+}
+
+/*sea*/
+.grid {
+	display: grid;
+	grid-template-columns: repeat(4,1fr);
+}
+
+/*El quinto(n) item dentro del grid, lo modifica en el tamaño */
+.item:first-child(5) {
+	grid-column-start: 1;
+	grid-column-end: 4;
+	grid-row-start: 1;
+	grid-row-end: 3; /*aumenta el tamaño largo*/
+	grid-column: 1 / span 3; /*lo mismo que start-end*/
+	grid-row: 1 / span 2;
+}
+
+/*para las galerias*/
+.grid{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+/*Templade areas*/
+
+.container {
+	display: grid;
+	grid-template-areas: 
+		'header header header'
+		'content content sidebar'
+		'box-1 box-2 box3'
+		'footer footer footer'
+	;
+}
+.header {
+	grid-area: header;
+}
+.content {
+	grid-area: content;
+}
+.sidebar {
+	grid-area: sidebar;
+}
+
+/*Media querys with grid*/
+@media(max-width: 768px){
+	.grid{
+		grid-template-columns: repeat(2,1fr);
+	}
+}
+@media(max-width: 768px){
+	.grid{
+		grid-template-columns: 1fr;
+	}
+}

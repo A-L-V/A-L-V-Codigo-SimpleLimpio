@@ -17,3 +17,25 @@ const person = () => {
 	setName: (name) => {saveName=name;}
     }
 }
+
+//argumentos indeterminados
+function sumar(...args){
+    for(let i of args){
+    }
+}
+sumar(40,50,20,15)
+
+//bucle- continue - break
+while("1" == uno){
+    if( 2 == "2"){
+        console.log("xd");
+        continue;
+    }
+    if( 3 == "2"){
+        break;
+    }
+}
+let array = [];
+for(let n of array){
+
+}
